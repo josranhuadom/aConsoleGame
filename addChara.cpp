@@ -23,7 +23,6 @@ void addChara()
     Chara* ptr = new Chara;
     Chara* q = head;
     
-
     if(head == NULL)
     {
         head = new Chara;
@@ -36,6 +35,7 @@ void addChara()
     }
     else
     {
+        //这个while循环与deleteChara.cpp 有关，用来判定q指针是不是在链表最后，以确保能够正常添加新角色
         while (q->next)
         {
             q = q->next;

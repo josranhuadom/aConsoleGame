@@ -18,22 +18,22 @@ void modiChara()
 
         Chara* ptr = head->next;
 
+        //查找角色并移动指针
         for (int i = 1; i <= No ; i++)
         {
             if (No == i)
                 break;
-            else
+            else if (ptr) 
                 ptr = ptr->next;
+            else
+            {
+                delete ptr;
+                cout << "不存在该角色，退出至主界面\n" << endl;
+                return;
+            }
         }
 
-        //检查玩家是否给出不存在的角色编号
-        if (!ptr)
-        {
-            delete ptr;
-            cout << "不存在该角色，退出至主界面\n" << endl;
-            return;
-        }
-
+        //更改角色属性
         do
         {
             int Element;

@@ -2,8 +2,6 @@
 
 extern Chara* head;
 
-//删除人物之后无法添加新角色
-
 void deleteChara()
 {
     printChara();
@@ -15,6 +13,7 @@ void deleteChara()
     Chara *ptr = head->next, 
           *q = head;
 
+    //查找角色并移动指针
     for (int i = 1; i <= No; i++)
     {
         if (No == i)
