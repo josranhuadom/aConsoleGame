@@ -30,6 +30,9 @@
     <ClCompile Include="printChara.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="InputChecking.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CharacterStruct.h">

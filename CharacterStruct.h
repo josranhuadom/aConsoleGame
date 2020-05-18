@@ -20,6 +20,7 @@ void addChara();
 void modiChara();
 void deleteChara();
 void printChara();
+int InputChecking(int);
 
 #endif
 

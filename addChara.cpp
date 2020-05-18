@@ -6,18 +6,27 @@ void addChara()
 {
 
     string NAME;
-    int ATK;
-    int DEF;
+    int ATK = NULL;
+    int DEF = NULL;
+    int i = NULL;
 
-    /*这部分缺失检查输入规范，一旦输入错误会进入死循环*/
     cout << "请输入角色名称：";
     cin >> NAME;
 
-    cout << "请自定义该角色的攻击力：";
-    cin >> ATK;
+    do
+    {
+        cout << "请自定义该角色的攻击力：";
+        cin >> ATK;
+        i = InputChecking(ATK);
+    } while (i);
 
-    cout << "请自定义该角色的防御力：";
-    cin >> DEF;
+    do
+    {
+        cout << "请自定义该角色的防御力：";
+        cin >> DEF;
+        i = InputChecking(DEF);
+    } while (i);
+
     cout << endl;
 
     Chara* ptr = new Chara;

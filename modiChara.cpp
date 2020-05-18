@@ -8,16 +8,23 @@ void modiChara()
     char choice;
     int No;
 
+    int i = NULL;
+
     do
     {
         cout << "\n以下是所有角色：\n";
         printChara();
-        cout << "请输入想要改动的角色编号：\n";
-        cin >> No;
+
+        do
+        {
+            cout << "请输入想要改动的角色编号：\n";
+            cin >> No;
+            i = InputChecking(No);
+        } while (i);
+
         cout << endl;
 
         Chara* ptr = head->next;
-
         //查找角色并移动指针
         for (int i = 1; i <= No ; i++)
         {
@@ -36,10 +43,15 @@ void modiChara()
         //更改角色属性
         do
         {
-            int Element;
-            cout << "请问你想改动的属性：\n"
-                << "1. 名称；2.攻击力；3.防御力\n";
-            cin >> Element;
+            int Element = NULL;
+
+            do
+            {
+                cout << "请问你想改动的属性：\n"
+                    << "1. 名称；2.攻击力；3.防御力\n";
+                cin >> Element;
+                i = InputChecking(Element);
+            } while (i);
 
             switch (Element)
             {
@@ -51,15 +63,23 @@ void modiChara()
                 break;
 
             case 2:
-                cout << "请输入新攻击力：";
-                cin >> ptr->atk;
+                do
+                {
+                    cout << "请输入新攻击力：";
+                    cin >> ptr->atk;
+                    i = InputChecking(ptr->atk);
+                } while (i);
                 cout << "现在新攻击力为：";
                 cout << ptr->atk;
                 break;
 
             case 3:
-                cout << "请输入新防御力：";
-                cin >> ptr->def;
+                do
+                {
+                    cout << "请输入新防御力：";
+                    cin >> ptr->def;
+                    i = InputChecking(ptr->def);
+                } while (i);
                 cout << "现在新防御力为：";
                 cout << ptr->def;
                 break;

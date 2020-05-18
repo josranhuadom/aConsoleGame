@@ -21,9 +21,13 @@ int main()
             << "3. 删除角色\n"
             << endl;
 
-        cout << "请输入对应编号以选择操作"<< endl;
-
-        cin>> selection;
+        int i = NULL;
+        do
+        {
+            cout << "请输入对应编号以选择操作" << endl;
+            cin >> selection;
+            i = InputChecking(selection);
+        } while (i);
 
         switch (selection)
         {

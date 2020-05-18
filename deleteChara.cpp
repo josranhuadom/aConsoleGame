@@ -6,9 +6,15 @@ void deleteChara()
 {
     printChara();
 
-    int No;
-    cout<<"请输入想要删除的角色编号：";
-    cin >> No;
+    int No = NULL;
+
+    int i = NULL;
+    do
+    {
+        cout << "请输入想要删除的角色编号：";
+        cin >> No;
+        i = InputChecking(No);
+    } while (i);
 
     Chara *ptr = head->next, 
           *q = head;
