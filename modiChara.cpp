@@ -17,12 +17,12 @@ void modiChara()
 
         do
         {
-            cout << "请输入想要改动的角色编号：\n";
+            cout << "请输入想要改动的角色编号：";
             cin >> No;
             i = InputChecking(No);
         } while (i);
 
-        cout << endl;
+
 
         Chara* ptr = head->next;
         //查找角色并移动指针
@@ -43,6 +43,7 @@ void modiChara()
         //更改角色属性
         do
         {
+            cout << endl;
             int Element = NULL;
 
             do
@@ -52,6 +53,7 @@ void modiChara()
                 cin >> Element;
                 i = InputChecking(Element);
             } while (i);
+            cout << endl;
 
             switch (Element)
             {
@@ -90,7 +92,7 @@ void modiChara()
             }
 
             cout << endl;
-            cout << "请问还需要改动该角色的其他属性吗？(Y/N)：";
+            cout << "\n请问还需要改动该角色的其他属性吗？(Y/N)：";
             cin >> choice;
         } while (choice == 'Y');
         

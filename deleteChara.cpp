@@ -39,6 +39,7 @@ void deleteChara()
 
     q->next = ptr->next;
     delete ptr;
+    cout << "已删除\n" << endl;
 
     cout << "以下是剩余的角色：\n";
     printChara();

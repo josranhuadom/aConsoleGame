@@ -21,6 +21,7 @@ void modiChara();
 void deleteChara();
 void printChara();
 int InputChecking(int);
+int detectCharaExist();
 
 #endif
 

@@ -33,6 +33,9 @@
     <ClCompile Include="InputChecking.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DetectCharaExist.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CharacterStruct.h">
