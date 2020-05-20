@@ -99,6 +99,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="addChara.cpp" />
+    <ClCompile Include="Character.cpp" />
     <ClCompile Include="deleteChara.cpp" />
     <ClCompile Include="DetectCharaExist.cpp" />
     <ClCompile Include="InputChecking.cpp" />
@@ -107,6 +108,7 @@
     <ClCompile Include="printChara.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Character.h" />
     <ClInclude Include="CharacterStruct.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
