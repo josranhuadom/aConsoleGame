@@ -4,7 +4,6 @@ extern Chara* head;
 
 void addChara()
 {
-
     string NAME;
     int ATK = NULL;
     int DEF = NULL;
