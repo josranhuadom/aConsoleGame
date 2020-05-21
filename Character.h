@@ -3,7 +3,13 @@
 using namespace std;
 class Character
 {
-	Character(string, int, int);
+private:
+	string m_name;
+	int m_atk;
+	int m_def;
+
+public:
+	Character(string name, int atk, int def) : m_name(name), m_atk(atk), m_def(def) {};
 
 };
 
