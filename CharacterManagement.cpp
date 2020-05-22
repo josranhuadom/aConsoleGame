@@ -1,5 +1,24 @@
 #include "CharacterManagement.h"
 
+int CharacterManagement::InputChecking(int m)
+{
+    try
+    {
+        if (cin.fail())
+            throw - 1;
+        else
+            return 0;
+    }
+    catch (...)
+    {
+        cin.clear();
+        cin.ignore(100, '\n');
+        cout << "输入错误，请重新输入\n" << endl;
+        return 1;
+    }
+}
+
+
 void CharacterManagement::AddCharacter()
 {
 
@@ -25,6 +44,7 @@ void CharacterManagement::MainInterface()
         << endl;
 
     int i = NULL;
+    int selection = NULL;
     do
     {
         cout << "请输入对应编号以选择操作" << endl;
@@ -35,17 +55,17 @@ void CharacterManagement::MainInterface()
     switch (selection)
     {
     case 1:
-        addChara();
+        AddCharacter();
         break;
     case 2:
         if (detectCharaExist())
             break;
-        modiChara();
+        ModifyCharacter();
         break;
     case 3:
         if (detectCharaExist())
             break;
-        deleteChara();
+        DeleteCharacter();
         break;
     default:
         cout << "错误输入，请重新输入\n" << endl;

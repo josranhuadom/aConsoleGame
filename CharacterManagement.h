@@ -9,5 +9,6 @@ public:
 	void AddCharacter();
 	void ModifyCharacter();
 	void DeleteCharacter();
+	int InputChecking(int);
 };
 

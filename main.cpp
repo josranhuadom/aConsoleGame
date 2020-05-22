@@ -10,13 +10,13 @@ Chara* head = NULL;
 //把所有功能做成一个类？然后进行传值？
 int main()
 {
-    int selection;
+    
 
     
     while (1)
     {
 
-        
+        MainInterface();
      
     }
 }
