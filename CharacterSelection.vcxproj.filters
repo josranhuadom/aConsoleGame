@@ -15,22 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="addChara.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="deleteChara.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="modiChara.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="printChara.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="InputChecking.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="DetectCharaExist.cpp">
