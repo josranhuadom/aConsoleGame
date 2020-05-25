@@ -10,7 +10,16 @@ private:
 	struct Character* next = NULL;
 
 public:
-	Character(string name, int atk, int def) : m_name(name), m_atk(atk), m_def(def) {};
+	Character();
+	Character(string name, int atk, int def) : m_name(name), m_atk(atk), m_def(def) {}
 
+	//一系列传private值用的函数
+	string PassName();
+	int PassAtk();
+	int PassDef();
+	Character* PassNextData();
+
+	//把*next指向下一个角色数据
+	void NextCharacter(Character* data);
 };
 
