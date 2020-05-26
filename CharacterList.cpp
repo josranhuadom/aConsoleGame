@@ -66,10 +66,10 @@ void CharacterList::AddCharacter()
     Character *tempPter = new Character(NAME, ATK, DEF);
 
         //这个while循环与deleteChara.cpp 有关，用来判定q指针是不是在链表最后，以确保能够正常添加新角色
-        while (q->next)
-        {
-            q = q->next;
-        }
+        //while (q->next)
+        //{
+        //    q = q->next;
+        //}
 
         ptr->name = NAME;
         ptr->atk = ATK;
