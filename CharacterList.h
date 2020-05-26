@@ -8,7 +8,6 @@ public:
 		head->NextCharacter(tail);
 	};
 
-	
 	void AddCharacter();
 	void ModifyCharacter();
 	void DeleteCharacter();

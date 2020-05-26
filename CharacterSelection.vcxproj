@@ -108,7 +108,6 @@
     <ClInclude Include="Character.h" />
     <ClInclude Include="CharacterList.h" />
     <ClInclude Include="CharacterManagement.h" />
-    <ClInclude Include="CharacterStruct.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
