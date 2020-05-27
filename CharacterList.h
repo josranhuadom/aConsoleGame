@@ -3,10 +3,7 @@
 class CharacterList
 {
 public:
-	CharacterList()
-	{
-		head->NextCharacter(tail);
-	};
+	CharacterList() {};
 
 	void AddCharacter();
 	void ModifyCharacter();
@@ -17,6 +14,5 @@ public:
 private:
 	Character* head = new Character;
 	Character* tail = new Character;
-
 };
 

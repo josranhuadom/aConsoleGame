@@ -36,6 +36,7 @@ void CharacterList::PrintCharacter()
     return;
 }
 
+//未完成
 void CharacterList::AddCharacter()
 {
     string NAME;
@@ -70,14 +71,15 @@ void CharacterList::AddCharacter()
         //{
         //    q = q->next;
         //}
-
-        ptr->name = NAME;
-        ptr->atk = ATK;
-        ptr->def = DEF;
-        ptr->next = NULL;
-
-        q->next = ptr;
-        q = ptr;
+    if (head->PassNextData == NULL)
+    {
+        head->NextCharacter(tempPter);
+        tail = tempPter;
+    }
+    else
+    {
+        tail->NextCharacter(tempPter);
+        tail = tempPter;
     }
 
     cout << "目前有以下角色：\n";
@@ -87,10 +89,9 @@ void CharacterList::AddCharacter()
 
 void CharacterList::DeleteCharacter()
 {
-    printChara();
+    PrintCharacter();
 
     int No = NULL;
-
     int i = NULL;
     do
     {
@@ -99,18 +100,18 @@ void CharacterList::DeleteCharacter()
         i = InputChecking(No);
     } while (i);
 
-    Chara* ptr = head->next,
-        * q = head;
+    Character* tempPtr = head->PassNextData();
+    Character* ptrPrevious = head;
 
     //查找角色并移动指针
     for (int i = 1; i <= No; i++)
     {
         if (No == i)
             break;
-        else if (ptr)
+        else if (tempPtr)
         {
-            q = ptr;
-            ptr = ptr->next;
+            ptrPrevious = tempPtr;
+            tempPtr = tempPtr->PassNextData();
         }
         else
         {
@@ -120,28 +121,26 @@ void CharacterList::DeleteCharacter()
 
     }
 
-    q->next = ptr->next;
-    delete ptr;
+    ptrPrevious->NextCharacter(tempPtr->PassNextData());
+    delete tempPtr;
     cout << "已删除\n" << endl;
 
     cout << "以下是剩余的角色：\n";
-    printChara();
+    PrintCharacter();
 
     return;
 }
 
 void CharacterList::ModifyCharacter()
 {
-    extern Chara* head;
-    char choice;
     int No;
-
     int i = NULL;
 
+    char choice; //该变量用于保存玩家是否继续改动角色其他属性/其他角色的选择
     do
     {
         cout << "\n以下是所有角色：\n";
-        printChara();
+        PrintCharacter();
 
         do
         {
@@ -150,19 +149,18 @@ void CharacterList::ModifyCharacter()
             i = InputChecking(No);
         } while (i);
 
+        Character* tempPtr = head->PassNextData();
 
-
-        Chara* ptr = head->next;
         //查找角色并移动指针
         for (int i = 1; i <= No; i++)
         {
             if (No == i)
                 break;
-            else if (ptr)
-                ptr = ptr->next;
+            else if (tempPtr)
+                tempPtr = tempPtr->PassNextData();
             else
             {
-                delete ptr;
+                delete tempPtr;
                 cout << "不存在该角色，退出至主界面\n" << endl;
                 return;
             }
@@ -173,7 +171,7 @@ void CharacterList::ModifyCharacter()
         {
             cout << endl;
             int Element = NULL;
-
+            int i = NULL;
             do
             {
                 cout << "请问你想改动的属性：\n"
@@ -183,43 +181,56 @@ void CharacterList::ModifyCharacter()
             } while (i);
             cout << endl;
 
+            //根据玩家的选择来改动三个属性之一
             switch (Element)
             {
-            case 1:
-                cout << "请输入新名称：";
-                cin >> ptr->name;
-                cout << "现在新名称为：";
-                cout << ptr->name;
-                break;
-
-            case 2:
-                do
+                case 1: 
                 {
-                    cout << "请输入新攻击力：";
-                    cin >> ptr->atk;
-                    i = InputChecking(ptr->atk);
-                } while (i);
-                cout << "现在新攻击力为：";
-                cout << ptr->atk;
-                break;
-
-            case 3:
-                do
+                    string NAME;
+                    cout << "请输入新名称：";
+                    cin >> NAME;
+                    tempPtr->NewName(NAME);
+                    cout << "现在新名称为：";
+                    cout << tempPtr->PassName();
+                    break;
+                }
+                case 2:
                 {
-                    cout << "请输入新防御力：";
-                    cin >> ptr->def;
-                    i = InputChecking(ptr->def);
-                } while (i);
-                cout << "现在新防御力为：";
-                cout << ptr->def;
-                break;
+                    int ATK;
+                    do
+                    {
+                        cout << "请输入新攻击力：";
+                        cin >> ATK;
+                        i = InputChecking(ATK);
+                    } while (i);
 
-            default:
-                cout << "不存在，请重新输入";
-                break;
+                    tempPtr->NewAtk(ATK);
+                    cout << "现在新攻击力为：";
+                    cout << tempPtr->PassAtk();
+                    break;
+                }
+                case 3:
+                {
+                    int DEF;
+                    do
+                    {
+                        cout << "请输入新攻击力：";
+                        cin >> DEF;
+                        i = InputChecking(DEF);
+                    } while (i);
+
+                    tempPtr->NewDef(DEF);
+                    cout << "现在新攻击力为：";
+                    cout << tempPtr->PassDef();
+                    break;
+                }
+                default:
+                    cout << "不存在，请重新输入";
+                    break;
             }
 
             cout << endl;
+
             cout << "\n请问还需要改动该角色的其他属性吗？(Y/N)：";
             cin >> choice;
         } while (choice == 'Y');
