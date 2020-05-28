@@ -2,7 +2,7 @@
 #include "CharacterList.h"
 
 
-void CharacterManagement::MainInterface()
+void CharacterManagement::MainInterface(CharacterList theList)
 {
     cout << "欢迎来到角色管理系统" << endl;
 
@@ -17,23 +17,23 @@ void CharacterManagement::MainInterface()
     {
         cout << "请输入对应编号以选择操作" << endl;
         cin >> selection;
-        i = InputChecking(selection);
+        i = theList.InputChecking(selection);
     } while (i);
 
     switch (selection)
     {
     case 1:
-        AddCharacter();
+        theList.AddCharacter();
         break;
     case 2:
-        if (detectCharaExist())
+        if (theList.DetectCharacterExist())
             break;
-        ModifyCharacter();
+        theList.ModifyCharacter();
         break;
     case 3:
-        if (detectCharaExist())
+        if (theList.DetectCharacterExist())
             break;
-        DeleteCharacter();
+        theList.DeleteCharacter();
         break;
     default:
         cout << "错误输入，请重新输入\n" << endl;

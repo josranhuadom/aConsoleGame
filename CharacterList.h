@@ -1,5 +1,5 @@
 #pragma once
-#include"Character.h"
+#include "Character.h"
 class CharacterList
 {
 public:
@@ -8,11 +8,13 @@ public:
 	void AddCharacter();
 	void ModifyCharacter();
 	void DeleteCharacter();
-	int InputChecking(int);
 	void PrintCharacter();
 
+	int DetectCharacterExist();
+	int InputChecking(int);
+
 private:
-	Character* head = new Character;
-	Character* tail = new Character;
+	Character* head;
+	Character* tail;
 };
 

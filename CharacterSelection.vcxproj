@@ -101,7 +101,6 @@
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="CharacterList.cpp" />
     <ClCompile Include="CharacterManagement.cpp" />
-    <ClCompile Include="DetectCharaExist.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>

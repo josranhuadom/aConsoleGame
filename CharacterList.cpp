@@ -1,21 +1,9 @@
 #include "CharacterList.h"
 
-int CharacterList::InputChecking(int m)
+CharacterList::CharacterList()
 {
-    try
-    {
-        if (cin.fail())
-            throw - 1;
-        else
-            return 0;
-    }
-    catch (...)
-    {
-        cin.clear();
-        cin.ignore(100, '\n');
-        cout << "输入错误，请重新输入\n" << endl;
-        return 1;
-    }
+    head = new Character;
+    tail = new Character;
 }
 
 void CharacterList::PrintCharacter()
@@ -35,8 +23,6 @@ void CharacterList::PrintCharacter()
 
     return;
 }
-
-//未完成
 void CharacterList::AddCharacter()
 {
     string NAME;
@@ -66,11 +52,12 @@ void CharacterList::AddCharacter()
 
     Character *tempPter = new Character(NAME, ATK, DEF);
 
-        //这个while循环与deleteChara.cpp 有关，用来判定q指针是不是在链表最后，以确保能够正常添加新角色
-        //while (q->next)
-        //{
-        //    q = q->next;
-        //}
+    //该while语句用于检测tail是否在列表末尾。但是要考虑，如果tail被删除了，这里能否重建tail？
+    while (tail->PassNextData())
+    {
+        tail->NextCharacter(tail->PassNextData());
+    }
+
     if (head->PassNextData == NULL)
     {
         head->NextCharacter(tempPter);
@@ -86,7 +73,6 @@ void CharacterList::AddCharacter()
     PrintCharacter();
     return;
 }
-
 void CharacterList::DeleteCharacter()
 {
     PrintCharacter();
@@ -130,7 +116,6 @@ void CharacterList::DeleteCharacter()
 
     return;
 }
-
 void CharacterList::ModifyCharacter()
 {
     int No;
@@ -241,4 +226,33 @@ void CharacterList::ModifyCharacter()
     } while (choice == 'Y');
 
     return;
+}
+
+
+int CharacterList::DetectCharacterExist()
+{
+    if (!head->PassNextData)
+    {
+        cout << "没有任何角色。\n";
+        cout << endl;
+        return 1;
+    }
+    else return 0;
+}
+int CharacterList::InputChecking(int m)
+{
+    try
+    {
+        if (cin.fail())
+            throw - 1;
+        else
+            return 0;
+    }
+    catch (...)
+    {
+        cin.clear();
+        cin.ignore(100, '\n');
+        cout << "输入错误，请重新输入\n" << endl;
+        return 1;
+    }
 }
