@@ -11,7 +11,7 @@ private:
 	string m_name;
 	int m_atk = 0;
 	int m_def = 0;
-	struct Character* next = NULL;
+	Character* next = NULL;
 
 public:
 	Character() {};

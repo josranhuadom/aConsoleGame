@@ -9,18 +9,19 @@ CharacterList::CharacterList()
 void CharacterList::PrintCharacter()
 {
     int No = 1;
-    Character* tempPtr = head->PassNextData;
+    Character* tempPtr = head->PassNextData();
+    cout << tail->PassAtk() << endl;
     while (tempPtr)
     {
         cout << No << "："
-            << "名字：" << tempPtr->PassName << "\n"
-            << "   攻击力：" << tempPtr->PassAtk << "\n"
-            << "   防御力：" << tempPtr->PassDef << "\n" << endl;
+            << "名字：" << tempPtr->PassName() << "\n"
+            << "   攻击力：" << tempPtr->PassAtk() << "\n"
+            << "   防御力：" << tempPtr->PassDef() << "\n" << endl;
 
-        tempPtr = tempPtr->PassNextData;
+        tempPtr = tempPtr->PassNextData();
         No++;
     }
-
+    cout << tail->PassAtk() << endl;
     return;
 }
 void CharacterList::AddCharacter()
@@ -29,10 +30,10 @@ void CharacterList::AddCharacter()
     int ATK = NULL;
     int DEF = NULL;
     int i = NULL;
-
+    cout << tail->PassAtk() << endl;
     cout << "请输入角色名称：";
     cin >> NAME;
-
+    cout << tail->PassAtk() << endl;
     do
     {
         cout << "请自定义该角色的攻击力：";
@@ -46,19 +47,20 @@ void CharacterList::AddCharacter()
         cin >> DEF;
         i = InputChecking(DEF);
     } while (i);
-
+    cout << tail->PassAtk() << endl;
 
     cout << endl;
 
     Character *tempPter = new Character(NAME, ATK, DEF);
-
+    cout << tail->PassAtk() << endl;
     //该while语句用于检测tail是否在列表末尾。但是要考虑，如果tail被删除了，这里能否重建tail？
+    cout << tail->PassAtk() << endl;
     while (tail->PassNextData())
     {
         tail->NextCharacter(tail->PassNextData());
     }
 
-    if (head->PassNextData == NULL)
+    if (head->PassNextData() == NULL)
     {
         head->NextCharacter(tempPter);
         tail = tempPter;
@@ -141,8 +143,11 @@ void CharacterList::ModifyCharacter()
         {
             if (No == i)
                 break;
-            else if (tempPtr)
+            else if (tempPtr->PassNextData())
+            {
                 tempPtr = tempPtr->PassNextData();
+                
+            }
             else
             {
                 delete tempPtr;
@@ -231,7 +236,7 @@ void CharacterList::ModifyCharacter()
 
 int CharacterList::DetectCharacterExist()
 {
-    if (!head->PassNextData)
+    if (!head->PassNextData())
     {
         cout << "没有任何角色。\n";
         cout << endl;

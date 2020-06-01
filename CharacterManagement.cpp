@@ -1,5 +1,6 @@
 #include "CharacterManagement.h"
 #include "CharacterList.h"
+#include "Character.h"
 
 
 void CharacterManagement::MainInterface(CharacterList theList)

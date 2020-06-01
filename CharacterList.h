@@ -3,7 +3,7 @@
 class CharacterList
 {
 public:
-	CharacterList() {};
+	CharacterList();
 
 	void AddCharacter();
 	void ModifyCharacter();
