@@ -18,7 +18,7 @@ void CharacterManagement::MainInterface(CharacterList theList)
     {
         cout << "请输入对应编号以选择操作" << endl;
         cin >> selection;
-        i = theList.InputChecking(selection);
+        i = InputChecking(selection);
     } while (i);
 
     switch (selection)
@@ -43,6 +43,22 @@ void CharacterManagement::MainInterface(CharacterList theList)
 }
 
 
-
+int CharacterManagement::InputChecking(int m)
+{
+    try
+    {
+        if (cin.fail())
+            throw - 1;
+        else
+            return 0;
+    }
+    catch (...)
+    {
+        cin.clear();
+        cin.ignore(100, '\n');
+        cout << "输入错误，请重新输入\n" << endl;
+        return 1;
+    }
+}
 
 

@@ -38,7 +38,7 @@ void CharacterList::AddCharacter()
     {
         cout << "请自定义该角色的攻击力：";
         cin >> ATK;
-        i = InputChecking(ATK);
+        i = ChaInputChecking(ATK);
     } while (i);
 
     do
@@ -243,21 +243,4 @@ int CharacterList::DetectCharacterExist()
         return 1;
     }
     else return 0;
-}
-int CharacterList::InputChecking(int m)
-{
-    try
-    {
-        if (cin.fail())
-            throw - 1;
-        else
-            return 0;
-    }
-    catch (...)
-    {
-        cin.clear();
-        cin.ignore(100, '\n');
-        cout << "输入错误，请重新输入\n" << endl;
-        return 1;
-    }
 }

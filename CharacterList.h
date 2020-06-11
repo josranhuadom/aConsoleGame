@@ -11,7 +11,6 @@ public:
 	void PrintCharacter();
 
 	int DetectCharacterExist();
-	int InputChecking(int);
 
 private:
 	Character* head;

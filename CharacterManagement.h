@@ -9,5 +9,6 @@ class CharacterManagement
 {
 public:
 	void MainInterface(CharacterList);
+	int InputChecking(int);
 };
 
