@@ -27,11 +27,12 @@ void CharacterList::PrintCharacter()
 }
 void CharacterList::AddCharacter()
 {
+    cout << tail->PassAtk() << endl;
     string NAME;
     int ATK = NULL;
     int DEF = NULL;
     int i = NULL;
-    cout << tail->PassAtk() << endl;
+
     cout << "ÇëÊäÈë½ÇÉ«Ãû³Æ£º";
     cin >> NAME;
     cout << tail->PassAtk() << endl;
