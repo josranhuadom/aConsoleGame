@@ -1,4 +1,5 @@
 #include "CharacterList.h"
+#include "CharacterManagement.h"
 
 CharacterList::CharacterList()
 {
@@ -38,7 +39,7 @@ void CharacterList::AddCharacter()
     {
         cout << "请自定义该角色的攻击力：";
         cin >> ATK;
-        i = ChaInputChecking(ATK);
+        i = InputChecking(ATK);
     } while (i);
 
     do

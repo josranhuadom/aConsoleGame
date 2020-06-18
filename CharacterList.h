@@ -12,6 +12,9 @@ public:
 
 	int DetectCharacterExist();
 
+public:
+	friend int InputChecking(int m);
+
 private:
 	Character* head;
 	Character* tail;
