@@ -18,15 +18,15 @@ public:
 	Character(string name, int atk, int def) : m_name(name), m_atk(atk), m_def(def) {}
 
 	//一系列传private值用的函数
-	string PassName();
-	int PassAtk();
-	int PassDef();
-	Character* PassNextData();
+	string GetName();
+	int GetAtk();
+	int GetDef();
+	Character* GetNextCharacter();
 
 	//一系列改动private值的函数
-	void NewName(string);
-	void NewAtk(int);
-	void NewDef(int);
-	void NextCharacter(Character*);
+	void SetName(string);
+	void SetAtk(int);
+	void SetDef(int);
+	void SetNextCharacter(Character*);
 };
 

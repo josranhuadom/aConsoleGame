@@ -1,37 +1,37 @@
 #include "Character.h"
 
 //一系列传private值用的函数
-string Character::PassName()
+string Character::GetName()
 {
 	return this->m_name;
 }
-int Character::PassAtk()
+int Character::GetAtk()
 {
 	return this->m_atk;
 }
-int Character::PassDef()
+int Character::GetDef()
 {
 	return this->m_def;
 }
-Character* Character::PassNextData()
+Character* Character::GetNextCharacter()
 {
 	return this->next;
 }
 
 //一系列改动private值的函数
-void Character::NewName(string name)
+void Character::SetName(string name)
 {
 	m_name = name;
 }
-void Character::NewAtk(int atk)
+void Character::SetAtk(int atk)
 {
 	m_atk = atk;
 }
-void Character::NewDef(int def)
+void Character::SetDef(int def)
 {
 	m_def = def;
 }
-void Character::NextCharacter(Character* data)
+void Character::SetNextCharacter(Character* data)
 {
 	this->next = data;
 }
