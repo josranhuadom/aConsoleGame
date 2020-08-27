@@ -11,22 +11,34 @@ private:
 	string m_name;
 	int m_atk = 0;
 	int m_def = 0;
-	Character* next = NULL;
+	int m_no = 0;
 
 public:
-	Character() {};
-	Character(string name, int atk, int def) : m_name(name), m_atk(atk), m_def(def) {}
 
-	//一系列传private值用的函数
+	//传private值
 	string GetName();
 	int GetAtk();
 	int GetDef();
-	Character* GetNextCharacter();
+	int GetNo();
 
-	//一系列改动private值的函数
+	//改private值
 	void SetName(string);
-	void SetAtk(int);
-	void SetDef(int);
-	void SetNextCharacter(Character*);
+	virtual void SetAtk(int);
+	virtual void SetDef(int);
+	void SetNo(int);
 };
 
+class Hero : public Character
+{
+private:
+	int equipAtk = 3;
+	int equipDef = 3;
+
+public:
+	void SetAtk(int);
+	void SetDef(int);
+};
+
+class Slave : public Character
+{
+};
