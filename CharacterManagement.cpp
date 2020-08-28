@@ -23,10 +23,6 @@ void CharacterManagement::MainInterface(CharacterList theList){
         {
             string name; int atk; int def; int id;
 
-            do {
-                cout << "创建勇士还是奴隶？\n1.勇士\t2.奴隶："; cin >> id;
-            } while (InputChecking(id));
-
             cout << "请输入角色名字："; cin >> name;
 
             do {
@@ -38,6 +34,9 @@ void CharacterManagement::MainInterface(CharacterList theList){
             } while (InputChecking(def));
             cout << endl;
 
+            do {
+                cout << "创建勇士还是奴隶？\n1.勇士\t2.奴隶："; cin >> id;
+            } while (InputChecking(id));
             if (id == 1) {
                 Hero* Ch = new Hero; Ch->SetName(name); Ch->SetAtk(atk); Ch->SetDef(def);
                 theList.Add(Ch);
@@ -50,7 +49,6 @@ void CharacterManagement::MainInterface(CharacterList theList){
             }
             else {
                 cout << "输入错误，返回主菜单。" << endl;
-                return;
             }
         }
         case 2: //编辑角色
